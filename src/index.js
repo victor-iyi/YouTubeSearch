@@ -10,16 +10,21 @@ const API_KEY = 'AIzaSyC-Qa3nrCo4T6jGUr1dxNbAdZsTnSw6Ct4'
 
 // Create a new component. This component should produce some HTML
 class App extends Component {
+
 	constructor(props) {
 		super(props)
 		this.state = { 
 			videos: [],
 			selectedVideo: null
 		 }
-		YTSearch({key: API_KEY, term: 'artificial intelligence'}, (videos) => {
+		 this.videoSearch('artificial intelligence')
+	}
+
+	videoSearch(term) {
+		YTSearch({key: API_KEY, term: term}, (data) => {
 			this.setState({ 
-				videos: videos,
-				selectedVideo: videos[0]
+				videos: data,
+				selectedVideo: data[0]
 			 })
 		})
 	}
@@ -28,7 +33,7 @@ class App extends Component {
 		return (
 			<div>
 				<h1> YouTube Search! </h1>
-				<SearchBar />
+				<SearchBar onSearchTermChange={term => this.videoSearch(term)} />
 				<VideoDetail video={this.state.selectedVideo} />
 				<VideoList 
 					onVideoSelect={selectedVideo => this.setState({selectedVideo})}

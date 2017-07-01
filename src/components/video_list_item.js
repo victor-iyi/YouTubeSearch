@@ -10,7 +10,7 @@ const VideoListItem = ({video, onVideoSelect}) => {
 				</div>
 
 				<div className="media-body">
-					<div className="media-heading">{video.snippet.title}></div>
+					<div className="media-heading">{video.snippet.title}</div>
 				</div>
 
 			</div>
