@@ -2,26 +2,21 @@ import React, { Component } from 'react'
 
 export default class SearchBar extends Component {
 
-	constructor(props) {
-		super(props)
-		this.state = { term: '' }
-	}
+  constructor(props) {
+    super(props)
+    this.state = { searchTerm: 'Artificial intelligence' }
+  }
 
-	onInputChange(term) {
-		this.setState({term})
-		this.props.onSearchTermChange(this.state.term)
-	}
-
-	render() {
-		return ( 
-			<div className="search-bar">
-				<input 
-					placeholder="search video"
-					value={this.state.term}
-					onChange={event => this.onInputChange(event.target.value)} 
-				/>
-			</div>
-		)
-	}
+  render() {
+    return (
+      <div>
+        <input placeholder="Search Video"
+          value={this.state.searchTerm}
+          onChange={event => this.setState({ searchTerm: event.target.value })}
+          />
+          <p>You typed: {this.state.searchTerm} </p>
+      </div>
+    )
+  }
 
 }
