@@ -11,7 +11,7 @@ Checkout this repo, install dependencies, then start the gulp process with the f
 
 ```
 > git clone https://github.com/victor-iyiola/YouTubeSearch.git
-> cd ReduxSimpleStarter
+> cd YouTubeSearch
 > npm install
 > npm start
 ```
