@@ -15,15 +15,10 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      videos: [
-        { id: 1, name: 'Apocalypse' },
-        { id: 2, name: 'Moving Tracy' },
-        { id: 3, name: 'Savotiar' },
-        { id: 4, name: 'Return of the Moicans' },
-        { id: 5, name: 'Avatar' }
-      ],
+      videos: [],
       selectedVideo: null
     }
+    this.videoSearch('Artificial Intelligence')
   }
 
   videoSearch(searchTerm) {
@@ -32,8 +27,8 @@ class App extends Component {
       term: searchTerm
     }, (data) => {
       this.setState({
-        videos: data
-        // selectedVideo: data[0]
+        videos: data,
+        selectedVideo: data[0]
       })
     })
   }
