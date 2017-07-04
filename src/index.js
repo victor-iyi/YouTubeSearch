@@ -1,5 +1,5 @@
 import _ from 'lodash'
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import ReactDOM from 'react-dom'
 import YTSearch from 'youtube-api-search'
 // custom components
@@ -15,17 +15,22 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      videos: [{id: 1, name: 'Apocalypse'},
-               {id: 2, name: 'Moving Tracy'},
-               {id: 3, name: 'Savotiar'},
-               {id: 4, name: 'Return of the Moicans'},
-               {id: 5, name: 'Avatar'}],
+      videos: [
+        { id: 1, name: 'Apocalypse' },
+        { id: 2, name: 'Moving Tracy' },
+        { id: 3, name: 'Savotiar' },
+        { id: 4, name: 'Return of the Moicans' },
+        { id: 5, name: 'Avatar' }
+      ],
       selectedVideo: null
     }
   }
 
   videoSearch(searchTerm) {
-    YTSearch({key: API_KEY, term: searchTerm}, (data) => {
+    YTSearch({
+      key: API_KEY,
+      term: searchTerm
+    }, (data) => {
       this.setState({
         videos: data
         // selectedVideo: data[0]
@@ -38,14 +43,14 @@ class App extends Component {
     return (
       <div>
         <h1>YouTube Search</h1>
-        <SearchBar onVideoSearch={(term) => videoSearch(term)} />
-        <VideoDetail video={this.state.selectedVideo} />
-        <VideoList onVideoSelected={video => this.setState({ selectedVideo: video })}
-          videos={this.state.videos} />
+        <SearchBar onVideoSearch={(term) => videoSearch(term)}/>
+        <VideoDetail video={this.state.selectedVideo}/>
+        <VideoList onVideoSelected={video => this.setState({selectedVideo: video})} videos={this.state.videos}/>
       </div>
     )
   }
 }
 
 const app = document.querySelector('.container')
-ReactDOM.render(<App />, app)
+ReactDOM.render(
+  <App/>, app)
