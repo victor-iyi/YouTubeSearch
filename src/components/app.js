@@ -5,10 +5,6 @@ import VideoList from '../containers/video-list'
 
 export default class App extends Component {
 
-	constructor(props) {
-		super(props)
-	}
-
 	render() {
 		return (
 			<div>

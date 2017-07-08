@@ -7,15 +7,14 @@ import { videoSelected } from '../actions'
 class VideoList extends Component {
 
 	videoList() {
-		console.log(this.props.videos)
 		if ( !this.props.videos )
 			return ( <div> No videos available. </div>)
 		// videos available
 		return this.props.videos.map((video) => {
 			return (
 				<VideoListItem 
-					onVideoSelect={this.props.videoSelected}
-					key={video.key}
+					onVideoSelected={this.props.videoSelected}
+					key={video.etag}
 					video={video} />
 			)
 		})
@@ -23,7 +22,7 @@ class VideoList extends Component {
 
 	render() {
 		return (
-			<ul className="list-group">
+			<ul className="col-md-4 list-group">
 				{this.videoList()}
 			</ul>
 		)

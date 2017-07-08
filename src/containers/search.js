@@ -1,26 +1,25 @@
-import React, {Component} from 'react'
-import {bindActionCreators} from 'redux'
-import {connect} from 'react-redux'
+import React, { Component } from 'react'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 import YTSearch from 'youtube-api-search'
-import {searchChanged, videoChanged} from '../actions'
+// custom imports
+import { searchChanged, videoChanged, videoSelected } from '../actions'
 
 class Search extends Component {
+	
+	constructor(props) {
+		super(props)
+		this.search()
+	}
 
 	search() {
 		YTSearch({
 				key: this.props.API_KEY,
 				term: this.props.searchTerm
 		}, videos => {
-				console.log(videos)
 				this.props.videoChanged(videos)
+				this.props.videoSelected(videos[0])
 		})
-		// const videos = [
-		// 	{ key: 10, title: 'Taylor Swift' },
-		// 	{ key: 11, title: 'Jussie Smollet' },
-		// 	{ key: 12, title: 'Justin Beiber' },
-		// 	{ key: 13, title: 'Ariana Grande' }
-		// ]
-		// this.props.videoChanged(videos)
 	}
 
 	onSearch(value) {
@@ -31,9 +30,10 @@ class Search extends Component {
 	render() {
 							
 		return (
-			<div className="search-item">
+			<div className="search-bar">
 				<input
 						type="text" placeholder="Search for videos"
+						value={this.props.searchTerm}
 						onChange={ (event) => this.onSearch(event.target.value) }
 				/>
 				<div>
@@ -55,7 +55,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
 		return bindActionCreators({
 				searchChanged: searchChanged,
-				videoChanged: videoChanged
+				videoChanged: videoChanged,
+				videoSelected: videoSelected
 		}, dispatch)
 }
 

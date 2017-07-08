@@ -1,4 +1,4 @@
-export default (state=null, action) => {
+export default (state='artificial intelligence', action) => {
 	switch(action.type) {
 		case 'SEARCH_CHANGED':
 			return action.payload
