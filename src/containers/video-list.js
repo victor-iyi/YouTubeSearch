@@ -7,6 +7,7 @@ import { videoSelected } from '../actions'
 class VideoList extends Component {
 
 	videoList() {
+		console.log(this.props.videos)
 		if ( !this.props.videos )
 			return ( <div> No videos available. </div>)
 		// videos available
