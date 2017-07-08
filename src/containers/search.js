@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import YTSearch from 'youtube-api-search'
+import _ from 'lodash'
 // custom imports
 import { searchChanged, videoChanged, videoSelected } from '../actions'
 
@@ -24,11 +25,11 @@ class Search extends Component {
 
 	onSearch(value) {
 		this.props.searchChanged(value)
-		this.search()
+		const videoSearch = _.debounce(() => this.search(), 300)
+		videoSearch()
 	}
 
 	render() {
-							
 		return (
 			<div className="search-bar">
 				<input
