@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-const VideoListItem = ({video, onVideoSelected}) {
+const VideoListItem = ({video, onVideoSelected}) => {
 
 		const title = video.snippet.title;
 		const thumbnail = video.snippet.thumbnails.default.url;
@@ -18,6 +18,6 @@ const VideoListItem = ({video, onVideoSelected}) {
 			</li>
 		);
 
-}
+};
 
 export default VideoListItem;
