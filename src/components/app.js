@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
-import Search from '../containers/search'
-import VideoDetail from '../containers/video-detail'
-import VideoList from '../containers/video-list'
+import React, { Component } from 'react';
+import Search from '../containers/search';
+import VideoDetail from '../containers/video-detail';
+import VideoList from '../containers/video-list';
 
-export default class App extends Component {
+class App extends Component {
 
 	render() {
 		return (
@@ -13,7 +13,9 @@ export default class App extends Component {
 				<VideoDetail />
 				<VideoList />
 			</div>
-		)
+		);
 	}
-	
+
 }
+
+export default App;
