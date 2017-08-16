@@ -1,0 +1,3 @@
+export const VIDEO_CHANGED = 'VIDEO_CHANGED';
+export const VIDEO_SELECTED = 'VIDEO_SELECTED';
+export const SEARCH_CHANGED = 'SEARCH_CHANGED';
