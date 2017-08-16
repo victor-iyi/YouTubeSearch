@@ -1,6 +1,6 @@
 import { VIDEO_CHANGED, VIDEO_SELECTED, SEARCH_CHANGED } from './actions';
 
-// When we search for new video and new list of videos is returned
+// When user search for a video, new list of videos is returned
 export function videoChanged(videos) {
 	return {
 		type: VIDEO_CHANGED,
