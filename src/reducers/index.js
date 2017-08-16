@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import Videos from './videos'
-import CurrentVideo from './current-video'
-import SearchTerm from './search-term'
-import APIKey from './api-key'
+import Videos from './videos';
+import CurrentVideo from './current-video';
+import SearchTerm from './search-term';
+import APIKey from './api-key';
 
 /**
   * Global application state.

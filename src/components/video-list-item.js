@@ -1,14 +1,14 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-export default class VideoListItem extends Component {
+class VideoListItem extends Component {
 
 	constructor(props) {
-		super(props)
+		super(props);
 	}
 
 	render() {
-		const title = this.props.video.snippet.title
-		const thumbnail = this.props.video.snippet.thumbnails.default.url
+		const title = this.props.video.snippet.title;
+		const thumbnail = this.props.video.snippet.thumbnails.default.url;
 		return (
 			<li onClick={(event) => this.props.onVideoSelected(this.props.video)}
 					className="list-group-item">
@@ -21,13 +21,9 @@ export default class VideoListItem extends Component {
 					<div className="media-heading">{title}</div>
 				</div>
 			</li>
-		)
-		// return (
-		// 	<li className="list-group-item"
-		// 			onClick={(event) => this.props.onVideoSelect(this.props.video) }>
-		// 		{this.props.video.title}
-		// 	</li>
-		// )
+		);
 	}
-	
+
 }
+
+export default VideoListItem;

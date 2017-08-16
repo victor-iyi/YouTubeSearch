@@ -1,10 +1,10 @@
-import React from 'react'
+import React from 'react';
 
 const VideoListItem = ({video, onVideoSelected}) => {
-  if ( !video ) return (<div>No video here...</div>)
+  if ( !video ) return (<div>No video here...</div>);
 
-  const imageURL = video.snippet.thumbnails.default.url
-  const videoTitle = video.snippet.title
+  const imageURL = video.snippet.thumbnails.default.url;
+  const videoTitle = video.snippet.title;
 
   return (
     <li onClick={() => onVideoSelected(video)}
@@ -18,8 +18,8 @@ const VideoListItem = ({video, onVideoSelected}) => {
         <div className="media-heading">{videoTitle}</div>
       </div>
     </li>
-  )
+  );
 
-}
+};
 
-export default VideoListItem
+export default VideoListItem;

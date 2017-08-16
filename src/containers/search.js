@@ -1,16 +1,16 @@
-import React, { Component } from 'react'
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
-import YTSearch from 'youtube-api-search'
-import _ from 'lodash'
+import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import YTSearch from 'youtube-api-search';
+import _ from 'lodash';
 // custom imports
-import { searchChanged, videoChanged, videoSelected } from '../actions'
+import { searchChanged, videoChanged, videoSelected } from '../actions';
 
 class Search extends Component {
-	
+
 	constructor(props) {
-		super(props)
-		this.search()
+		super(props);
+		this.search();
 	}
 
 	search() {
@@ -20,13 +20,13 @@ class Search extends Component {
 		}, videos => {
 				this.props.videoChanged(videos)
 				this.props.videoSelected(videos[0])
-		})
+		});
 	}
 
 	onSearch(value) {
-		this.props.searchChanged(value)
-		const videoSearch = _.debounce(() => this.search(), 300)
-		videoSearch()
+		this.props.searchChanged(value);
+		const videoSearch = _.debounce(() => this.search(), 300);
+		videoSearch();
 	}
 
 	render() {
@@ -41,24 +41,24 @@ class Search extends Component {
 					{ this.props.searchTerm ? `Searching for: ${this.props.searchTerm}` : ''}
 				</div>
 			</div>
-		)
+		);
 	}
 
 }
 
 const mapStateToProps = (state) => {
 		return {
-			searchTerm: state.searchTerm, 
+			searchTerm: state.searchTerm,
 			API_KEY: state.API_KEY
-		}
-}
+		};
+};
 
 const mapDispatchToProps = (dispatch) => {
 		return bindActionCreators({
 				searchChanged: searchChanged,
 				videoChanged: videoChanged,
 				videoSelected: videoSelected
-		}, dispatch)
-}
+		}, dispatch);
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(Search)
+export default connect(mapStateToProps, mapDispatchToProps)(Search);
