@@ -12,5 +12,9 @@ ReactDOM.render(
   <Provider store={store}>
     <App />
   </Provider>
+<<<<<<< HEAD
   , document.querySelector('.container')
 );
+=======
+  , document.querySelector('.container'));
+>>>>>>> origin/youtube-search-with-redux
